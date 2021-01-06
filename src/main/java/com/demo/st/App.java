@@ -68,7 +68,7 @@ private String specialCharacterHandler(String number) {
 	return number;
 }
    public String demilatorDefiner(String numberString) {
-	   numberString= numberString.replaceAll("//\\[", "").replaceAll("//","").replaceAll("\\[","").replaceAll("\\]", "|").trim();
+	   numberString= numberString.replaceAll("//", "").replaceAll("\\[","").replaceAll("\\]", "|").trim();
 	  
 	   if(String.valueOf(numberString.charAt(numberString.length()-1)).equals("|")) {
 		   numberString= numberString.substring(0, numberString.length()-1);  
