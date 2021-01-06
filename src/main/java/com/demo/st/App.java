@@ -19,7 +19,6 @@ public class App
 		   if(number.startsWith("//")) {
 
 			   number = specialCharacterHandler(number);
-			   System.out.println("new num: "+number);
 		   int end = number.indexOf("\n");
 		   String demilatorStr= number.substring(0, end+1);
 		  numStr= number.substring(end+1, number.length());
@@ -68,7 +67,7 @@ private String specialCharacterHandler(String number) {
 	return number;
 }
    public String demilatorDefiner(String numberString) {
-	   numberString= numberString.replaceAll("//", "").replaceAll("\\[","").replaceAll("\\]", "|").trim();
+	   numberString= numberString.replaceAll("[//\\[]", "").replaceAll("\\]", "|").trim();
 	  
 	   if(String.valueOf(numberString.charAt(numberString.length()-1)).equals("|")) {
 		   numberString= numberString.substring(0, numberString.length()-1);  
