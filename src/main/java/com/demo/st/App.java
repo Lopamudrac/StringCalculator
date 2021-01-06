@@ -19,10 +19,11 @@ public class App
 		   if(number.startsWith("//")) {
 
 			   number = specialCharacterHandler(number);
-			   
+			   System.out.println("new num: "+number);
 		   int end = number.indexOf("\n");
 		   String demilatorStr= number.substring(0, end+1);
 		  numStr= number.substring(end+1, number.length());
+		 
 		  demilator= demilatorDefiner(demilatorStr);
 		   }
 		   else {
@@ -59,7 +60,7 @@ public class App
 	   return sum;
 }
 private String specialCharacterHandler(String number) {
-	String specialCharacters = "$*()+|?{}\\\\";
+	String specialCharacters = "$*()+|?{}\\";
 	   for (int i = 0; i < specialCharacters.length(); i++) {
 		   String newSp="\\"+String.valueOf(specialCharacters.charAt(i));
 		   number = number.replaceAll(newSp,";");
@@ -67,9 +68,12 @@ private String specialCharacterHandler(String number) {
 	return number;
 }
    public String demilatorDefiner(String numberString) {
-	   numberString= numberString.replaceAll("//\\[", "").replaceAll("\\[","").replaceAll("\\]", "|").trim();
-	   numberString= numberString.substring(0, numberString.length()-1);
-	   System.out.println("num Str: "+numberString);
+	   numberString= numberString.replaceAll("//\\[", "").replaceAll("//","").replaceAll("\\[","").replaceAll("\\]", "|").trim();
+	  
+	   if(String.valueOf(numberString.charAt(numberString.length()-1)).equals("|")) {
+		   numberString= numberString.substring(0, numberString.length()-1);  
+	   }
+	   System.out.println("demi: "+numberString);
 	   
 	   
 	return numberString;
