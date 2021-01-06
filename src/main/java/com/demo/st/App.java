@@ -17,11 +17,18 @@ public class App
 	   String numStr=new String();
 	   if(!number.trim().isEmpty()) {
 		   if(number.startsWith("//")) {
+
+			   String specialCharacters = "$*()+|?{}\\\\";
+			   for (int i = 0; i < specialCharacters.length(); i++) {
+				   String newSp="\\"+String.valueOf(specialCharacters.charAt(i));
+				   number = number.replaceAll(newSp,";");
+				
+				
+			   }
 		   int end = number.indexOf("\n");
 		   String demilatorStr= number.substring(0, end+1);
 		  numStr= number.substring(end+1, number.length());
 		  demilator= demilatorDefiner(demilatorStr);
-		   System.out.println("demi: "+demilator+"num: "+numStr);
 		   }
 		   else {
 			   demilator=",|\n";
@@ -57,7 +64,6 @@ public class App
 	   return sum;
 }
    public String demilatorDefiner(String numberString) {
-	   System.out.println("numberString: "+numberString);
 	   numberString= numberString.replaceAll("//\\[", "").replaceAll("\\[","").replaceAll("\\]", "|").trim();
 	   numberString= numberString.substring(0, numberString.length()-1);
 	   System.out.println("num Str: "+numberString);

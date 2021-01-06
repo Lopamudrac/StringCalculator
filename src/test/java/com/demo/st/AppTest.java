@@ -46,7 +46,7 @@ public class AppTest
     	try {
 			
     		System.out.println("Test case4 started");
-			assertEquals(3,app.add("//[&]\n1&2"));
+			assertEquals(3,app.add("//[**]\n1**2"));
 			assertEquals(15,app.add("//[&&&][;;;]\n1&&&5;;;9"));
 		} catch (STExceptions e) {
 			System.out.println("Exception is: "+e.getMessage());
