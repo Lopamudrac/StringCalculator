@@ -96,7 +96,7 @@ public class AppTest
     public void case7(){  
     	try {
 			
-    		//System.out.println("Test case7 started");
+    		//System.out.println("Test case 7 started");
 			assertEquals(3,app.add("//[**]\n1**2"));
 			assertEquals(3,app.add("//**\n1**2"));
 			assertEquals(6,app.add("//[***]\n1***2***3"));
