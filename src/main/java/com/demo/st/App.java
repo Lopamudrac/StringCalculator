@@ -34,7 +34,6 @@ public class App
 					 List<Integer> negative= new ArrayList<>();
 					for (int i = 0; i < numArray.length; i++) {
 						if(numArray[i]<0) {
-							System.out.println("negative");
 							negative.add(numArray[i]);
 							sum=0;
 						}
@@ -72,7 +71,7 @@ private String specialCharacterHandler(String number) {
 	   if(String.valueOf(numberString.charAt(numberString.length()-1)).equals("|")) {
 		   numberString= numberString.substring(0, numberString.length()-1);  
 	   }
-	   System.out.println("demi: "+numberString);
+	  // System.out.println("demi: "+numberString);
 	   
 	   
 	return numberString;

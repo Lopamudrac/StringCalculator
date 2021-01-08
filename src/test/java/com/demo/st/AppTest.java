@@ -20,7 +20,7 @@ public class AppTest
     	System.out.println("Initial test case started");
     	try {
 			assertEquals(0,app.add(""));
-			assertEquals(10,app.add("1,2,3,4")); //Case2
+			assertEquals(3,app.add("1,2")); //Case2
 		} catch (STExceptions e) {
 			System.out.println("Exception is: "+e.getMessage());
 		}
@@ -28,11 +28,23 @@ public class AppTest
        
     }
     @Test
+    public void case2(){  
+    	System.out.println("Case 2 started");
+    	try {
+			
+			assertEquals(10,app.add("1,2,3,4")); //Case2
+		} catch (STExceptions e) {
+			System.out.println("Exception is: "+e.getMessage());
+		}
+    	System.out.println("Case 2 completed");  
+       
+    }
+    @Test
     public void case3(){  
     	try {
 			
     		System.out.println("Test case3 started");
-			assertEquals(3,app.add("1\n2")); //Case3
+			assertEquals(6,app.add("1\n2,3")); //Case3
 			//assertEquals(4,app.add("1,\n3")); //Case3 --check
 			assertEquals(STExceptions.class,app.add("1,2,cd,e"));
 		} catch (STExceptions e) {
@@ -46,15 +58,15 @@ public class AppTest
     	try {
 			
     		System.out.println("Test case4 started");
-			assertEquals(3,app.add("//[**]\n1**2"));
-			assertEquals(3,app.add("//**\n1**2"));
-			assertEquals(15,app.add("//[&&&][;;;]\n1&&&5;;;9"));
+			assertEquals(3,app.add("//;\n1;2"));
+			
 		} catch (STExceptions e) {
 			System.out.println("Exception is: "+e.getMessage());
 		}
          
     	System.out.println("Test case4 completed");
     }
+  
     @Test
     public void case5(){  
     	System.out.println("Test case5 started");
@@ -79,5 +91,45 @@ public class AppTest
 		}
          
     	System.out.println("Test case6 completed");
+    }
+    @Test
+    public void case7(){  
+    	try {
+			
+    		System.out.println("Test case7 started");
+			assertEquals(3,app.add("//[**]\n1**2"));
+			assertEquals(3,app.add("//**\n1**2"));
+			assertEquals(6,app.add("//[***]\n1***2***3"));
+		} catch (STExceptions e) {
+			System.out.println("Exception is: "+e.getMessage());
+		}
+         
+    	System.out.println("Test case7 completed");
+    }
+    @Test
+    public void case8(){  
+    	try {
+			
+    		System.out.println("Test case8 started");
+			assertEquals(6,app.add("//[*][%]\n1*2%3"));
+		} catch (STExceptions e) {
+			System.out.println("Exception is: "+e.getMessage());
+		}
+         
+    	System.out.println("Test case8 completed");
+    }
+    @Test
+    public void case9(){  
+    	try {
+			
+    		System.out.println("Test case9 started");
+			assertEquals(3,app.add("//[**]\n1**2"));
+			assertEquals(3,app.add("//**\n1**2"));
+			assertEquals(15,app.add("//[&&&][;;;]\n1&&&5;;;9"));
+		} catch (STExceptions e) {
+			System.out.println("Exception is: "+e.getMessage());
+		}
+         
+    	System.out.println("Test case9 completed");
     }
 }
